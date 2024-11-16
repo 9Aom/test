@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import User from './components/User';
 import MainOne from './components/MainOne';
@@ -14,7 +14,6 @@ const App = () => {
       <View>
         <ScrollView>
           <User />
-          <MainOne />
           <MainSec />
         </ScrollView>
         <Footer />
