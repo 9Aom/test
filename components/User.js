@@ -6,16 +6,45 @@ import { StatusBar } from 'expo-status-bar';
 const User = () => {
 
     const [count, setCount] = useState(0);
-    const [minus, setMinus] =useState(0);
+    const [isIncreasing, setIsincreasing] = useState(true);
         const increaseCount = () => {
-            setCount(count + 1);
-            setMinus(minus - 1)
         };
 
-    const [buttonText, setBtnText] = useState("Following")
+    const [buttonText, setBtnText] = useState("Follow")
     const handleText = () => {
-        setBtnText('Follow');
-    }
+        // if (increaseCount) {
+        //     setBtnText('Following');
+        //     setCount(count + 1);
+
+            setBtnText((prevText) =>
+                prevText === 'Follow'
+            ? 'Following'
+            : 'Follow'
+        );
+        setCount(count + 1)
+
+        // } else {
+        //     setBtnText('Follow');
+        //     setCount(count - 1);
+        // }
+    };
+    const handleTextx = () => {
+        // if (increaseCount) {
+        //     setBtnText('Following');
+        //     setCount(count + 1);
+
+            setBtnText((prevText) =>
+                prevText === 'Follow'
+            ? 'Following'
+            : 'Follow'
+        );
+        setCount(count - 1)
+
+        // } else {
+        //     setBtnText('Follow');
+        //     setCount(count - 1);
+        // }
+    };
 
     return (
         <View style={{ backgroundColor: '#fff' }} >
@@ -79,8 +108,9 @@ const User = () => {
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', marginTop: 10 }} >
-                <Text onPress={increaseCount} onPressIn={handleText} style={[styles.btnStyleFollow]} >{buttonText}
-                </Text>
+                <TouchableOpacity onPressIn={handleTextx} onPress={handleText} style={[styles.btnOpaStyle, styles.btnStyleFollow]} >
+                <Text style={{color: '#fff', fontWeight: 'bold'}} >{buttonText}</Text>
+                </TouchableOpacity>
                 <Text onPress={() => console.log('!')} style={[styles.btnStyleFollow, styles.btnStyleMessage]} >Message</Text>
             </View>
 
@@ -229,6 +259,10 @@ const styles = StyleSheet.create({
         padding: '10',
         borderRadius: 25 / 2,
         cursor: 'pointer'
+    },
+    btnOpaStyle: {
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     btnStyleMessage: {
         backgroundColor: '#575757'
