@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, ScrollView, Alert, } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import { Button } from 'react-native-web';
 
 const User = () => {
 
     const [count, setCount] = useState(0);
+    // function setNum () {
+    //     setCount(count + 1)
+    // }
     const [isIncreasing, setIsincreasing] = useState(true);
         const increaseCount = () => {
         };
@@ -33,12 +37,11 @@ const User = () => {
         //     setBtnText('Following');
         //     setCount(count + 1);
 
-            setBtnText((prevText) =>
-                prevText === 'Follow'
-            ? 'Following'
-            : 'Follow'
-        );
-        setCount(count - 1)
+        //     setBtnText((prevText) =>
+        //         prevText === 'Follow'
+        //     ? 'Following'
+        //     : 'Follow'
+        // );
 
         // } else {
         //     setBtnText('Follow');
@@ -111,7 +114,7 @@ const User = () => {
                 <TouchableOpacity onPressIn={handleTextx} onPress={handleText} style={[styles.btnOpaStyle, styles.btnStyleFollow]} >
                 <Text style={{color: '#fff', fontWeight: 'bold'}} >{buttonText}</Text>
                 </TouchableOpacity>
-                <Text onPress={() => console.log('!')} style={[styles.btnStyleFollow, styles.btnStyleMessage]} >Message</Text>
+                <Text onPress={() => Alert.alert('Notice🔔', "New Message 💬")} style={[styles.btnStyleFollow, styles.btnStyleMessage]} >Message</Text>
             </View>
 
             <View style={{ marginTop: 15, flexDirection: 'row' }} >
@@ -124,7 +127,7 @@ const User = () => {
                         <Text style={{
                             textAlign: 'center', fontWeight:'500'
                         }} >highlight</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>🔔
                     
                     <TouchableOpacity>
                         <Image source={{
